@@ -1,0 +1,31 @@
+<div id="app">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img width="30" height="30" class="d-inline-block align-top" alt="">
+        Quiz
+        </a>
+        <a class="nav-item pull-right" v-if="user_signed_in" href="users/sign_out">Logout</a>
+    </nav>
+    <div class="col-md-10 m-auto">
+        <div v-for="quiz in quizzes">
+            <div class="col-md-4">
+                <h2>{{quiz.title}}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+      quizzes: [],
+      questions: [],
+      answers: [],
+      user_signed_in: `<%=user_signed_in?%>`,
+      current_user: `<%=current_user.email%>`
+  },
+  methods: {
+   }
+})
+</script>
